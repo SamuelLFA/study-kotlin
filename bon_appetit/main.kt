@@ -29,19 +29,18 @@ import kotlin.text.*
  */
 fun bonAppetit(bill: Array<Int>, k: Int, b: Int): Unit {
     // Write your code here
-    var sumItemsMinusAnnaPortion = 0
-    for (i in 0..bill.size - 1) {
-        if (i != k) {
-            sumItemsMinusAnnaPortion += bill[i]
-        }
-    }
+
+    val sumItemsMinusAnnaPortion = bill
+        .sliceArray(bill.indices.minus(k))
+        .reduce { acc, item -> acc + item }
+
+    println(sumItemsMinusAnnaPortion)
     if (sumItemsMinusAnnaPortion / 2 == b) {
         println("Bon Appetit")
     } else {
-        println(b.minus((sumItemsMinusAnnaPortion.div(2))))
+        println(b - (sumItemsMinusAnnaPortion / 2))
     }
 }
-
 // input04 = 781
 fun main(args: Array<String>) {
     val first_multiple_input = readLine()!!.trimEnd().split(" ")

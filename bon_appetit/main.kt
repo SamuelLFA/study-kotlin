@@ -41,7 +41,9 @@ fun bonAppetit(bill: Array<Int>, k: Int, b: Int): Unit {
         println(b - (sumItemsMinusAnnaPortion / 2))
     }
 }
+
 // input04 = 781
+// cat input_04.txt | java -jar main.jar
 fun main(args: Array<String>) {
     val first_multiple_input = readLine()!!.trimEnd().split(" ")
 
